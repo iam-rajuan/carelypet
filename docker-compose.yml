@@ -26,12 +26,14 @@ services:
       context: ./carelypet-backend
       dockerfile: Dockerfile
     container_name: carelypet-backend
+    ports:
+      - "5191:5191"
     env_file:
       - ./carelypet-backend/.env
     environment:
       NODE_ENV: production
       PORT: 5191
-      MONGO_URI: mongodb://mongo:27017/carelypet_db
+      MONGO_URI: mongodb+srv://carelypets:Jigy6pW3C5RLS2bz@carelypets-cluster.e5f141k.mongodb.net/?appName=Carelypets-cluster
     depends_on:
       mongo:
         condition: service_healthy
